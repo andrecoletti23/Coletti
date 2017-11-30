@@ -194,6 +194,10 @@
     <Compile Include="Migrations\201711221640221_ClienteRazaoSocial.Designer.cs">
       <DependentUpon>201711221640221_ClienteRazaoSocial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711301926245_Pendentes.cs" />
+    <Compile Include="Migrations\201711301926245_Pendentes.Designer.cs">
+      <DependentUpon>201711301926245_Pendentes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Mensagem.cs" />
@@ -253,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711221640221_ClienteRazaoSocial.resx">
       <DependentUpon>201711221640221_ClienteRazaoSocial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301926245_Pendentes.resx">
+      <DependentUpon>201711301926245_Pendentes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -18,6 +18,7 @@ namespace Coletti.DAO
         public DbSet<Status> Status { get; set; }
         public DbSet<Mensagem> Mensagens { get; set; }
         public DbSet<Remetente> Remetentes { get; set; }
+       
 
         public ColettiContext() : base("Server=(localdb)\\mssqllocaldb;Database=AndreDB;Trusted_Connection=true;")
         {
