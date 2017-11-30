@@ -1,0 +1,29 @@
+﻿
+@model IList<Coletti.Models.Cliente>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Cpf</th>
+            <th>Login</th>
+            <th>Senha</th>
+            <th>Cnpj</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cliente in Model)
+        {
+            <tr>
+                <td>@cliente.Id</td>
+                <td>@cliente.Nome</td>
+                <td>@cliente.Cpf</td>
+                <td>@cliente.Login</td>
+                <td>@cliente.Senha</td>
+                <td>@cliente.Cnpj</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Adicionar", "Form", "Cliente")

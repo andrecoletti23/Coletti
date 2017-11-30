@@ -1,0 +1,47 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+    <script src="~/JS/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="~/Content/Css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/Css/Site.css" />
+    <script type="text/javascript" src="~/JS/CampoCpfCnpj.js"></script>
+    <link href="~/Content/Css/frmCliente.css" rel="stylesheet" />
+    <link href="~/Content/Css/home.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"/>
+    <script type="application/json" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+</head>
+<body>
+    <div class="header">
+        <ul class="nav nav-pills pull-right">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            @if(Session["clienteLogado"] == null & Session["funcionarioLogado"] == null){
+                <li>@Html.ActionLink("Login", "Index", "Login")</li>
+            }
+            else if (Session["funcionarioLogado"] != null)
+            {
+                <li>@Html.ActionLink("Orçamentos", "Form", "Orcamento")</li>
+                <li>@Html.ActionLink("Sair", "Logout", "Login")</li>
+            }
+            else if (Session["clienteLogado"] != null)
+            {
+                <li>@Html.ActionLink("Novo Pedido", "Form", "Pedido")</li>
+                <li>@Html.ActionLink("Meus Pedidos", "index", "Pedido")</li>
+                <li>@Html.ActionLink("Sair", "Logout", "Login")</li>
+            }
+
+
+            
+            
+        </ul>
+        <h3 id="coletti" class="text corFonte"><span id="cColetti">C</span>oletti</h3> 
+    </div>
+    <div id="conteudo" class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>

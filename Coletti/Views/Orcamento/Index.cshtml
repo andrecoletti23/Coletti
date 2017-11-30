@@ -1,0 +1,21 @@
+﻿@model IList<Coletti.Models.Orcamento>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id:</th>
+            <th>Valor:</th>
+            <th>Data de entrega sugerida:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var orcamento in Model)
+        {
+            <tr>
+                <td>@orcamento.Id</td>
+                <td>@orcamento.Valor</td>
+                <td>@orcamento.DataEntregaSugerida</td>
+            </tr>
+        }
+    </tbody>
+</table>

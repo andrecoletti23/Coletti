@@ -1,0 +1,35 @@
+﻿
+<form action="/Cliente/Adiciona" method="post">    
+    
+    <select id="tipo_pessoa" name="Selecionar" >
+        <option value="" disabled selected hidden>Selecione...</option>
+        <option value="pessoa_fisica">Pessoa Física</option>
+        <option value="pessoa_juridica">Pessoa Jurídica</option>
+    </select>
+    <p></p>
+    <div id="campoJuridico">
+        <input id="cnpj" name="cliente.Cnpj" placeholder="CNPJ" />
+        <input id="razaoSocial" name="cliente.RazaoSocial" placeholder="Razão Social" />
+    </div>
+    <div id="campoFisico">
+        <input id="cpf" name="cliente.Cpf" placeholder="CPF"/>
+        <input id="nome" name="cliente.Nome" placeholder="Nome" />
+    </div>
+    
+    <p></p>
+
+    <label for="login">Login:</label>
+    <input id="login" name="cliente.Login" class="form-control" />
+    
+    <p></p>
+    
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" name="cliente.Senha" class="form-control" />
+     
+    <p></p>
+    
+    <input type="submit" value="Cadastrar" />
+</form>
+
+<script type="text/javascript"  src="~/JS/CampoCpfCnpj.js"></script>
+

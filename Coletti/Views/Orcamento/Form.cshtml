@@ -1,0 +1,83 @@
+﻿@model IList<Coletti.Models.Pedido>
+
+<link href="~/Content/Css/formOrcamento.css" rel="stylesheet" />
+   
+ <table class="table" id="tabelaProdutos">
+        <tr>
+            <th>Descrição:</th>
+            <th>Data do Pedido:</th>
+            <th>Data de Entrega Desejada:</th>
+            <th>Imagem:</th>
+        </tr>
+
+    @foreach (var pedido in Model)
+    {
+        <tr>
+            <td>@pedido.id</td>
+            <td>@pedido.Descricao</td>
+            <td>@pedido.DataRealizado</td>
+            <td>@pedido.DataEntregaDesejada</td>
+            <td>@pedido.Imagem</td>
+            <td>
+                <a href="Pedido/Remover/@pedido.id">Remover</a>
+            </td>
+            <td>
+                <button class="btnSlcProduto" value="@pedido.id">Criar Orçamento</button>
+            </td>
+        </tr>
+    }
+    </table>
+
+<div id="form" class="invisivel">
+    <label>Descrição:</label>
+    <div class="divBorda" >
+        <label id="Descricao"></label>
+    </div>
+    <label>Data de Realização:</label>
+    <div class="divBorda">
+        <label id="DataRealizado"></label>
+    </div>
+    @*<label id="dataSugerida" >Data de entrega Sugerida:</label>
+    <div class="divBorda">
+        <label id="DataEntregaDesejada"></label>
+    </div>*@
+    <label>Imagem:</label>
+    <div class="divBorda">
+        <label id="Imagem"></label>
+    </div>
+    
+    <form action="/Orcamento/Adiciona" method="post">
+        <label for="valor">Valor:</label>
+        <input id="valor" name="orcamento.Valor" class="form-control"/>
+        <p></p>
+        <label for="dataEntregaSugerida">Data de Entrega Sugerida:</label>
+        <input id="dataEntregaSugerida" name="orcamento.DataEntregaSugerida" class="form-control" />
+        <p></p>
+        <label>Prioridade</label>
+        <select id="PrioridadeId" name="orcamento.PrioridadeId">
+            @foreach (var prioridade in ViewBag.Prioridade)
+            {
+                <option value="@prioridade.Id">@prioridade.Nome</option>
+            }                                  
+        </select>
+
+        <input id="pedidoId" name="carro" class="invisivel"  />
+
+        <input type="submit" value="Cadastrar" />
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(".btnSlcProduto").click(function () {
+       var tr = $(this).parent().parent().find("td");
+
+       $("#Descricao").text($(tr[1]).text());
+       $("#DataRealizado").text($(tr[2]).text());
+       $("#DataEntregaDesejada").text($(tr[3]).text());
+       $("#Imagem").text($(tr[4]).text());
+       $("#pedidoId").val($(tr[0]).text())
+       
+       $("#form").removeClass("invisivel");
+       $("#tabelaProdutos").addClass("invisivel");
+    })
+</script>

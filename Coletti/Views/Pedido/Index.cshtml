@@ -1,0 +1,41 @@
+﻿
+@model IList<Coletti.Models.Pedido>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Descrição:</th>
+            <th>Data do Pedido:</th>
+            <th>Data de Entrega Desejada:</th>
+            <th>Valor:</th>
+            @*<th>OrçamentoId</th>*@
+            <th>Data de entrega Sugerida:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pedido in Model)
+        {
+            <tr>
+                <td>@pedido.Descricao</td>
+                <td>@pedido.DataRealizado</td>
+                <td>@pedido.DataEntregaDesejada</td>
+               
+                @if (pedido.OrcamentoId != 0)
+                {
+                    foreach (var orcamento in ViewBag.Orcamento)
+                    {
+                        if (orcamento.Id == pedido.OrcamentoId)
+                        {
+                            <td>R$ @orcamento.Valor</td>
+                            @*<td>@orcamento.Id</td>*@
+                            <td>@orcamento.DataEntregaSugerida</td>
+                        }
+                    }
+                }
+
+                <td>@pedido.Imagem</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Adicionar", "Form", "Pedido")

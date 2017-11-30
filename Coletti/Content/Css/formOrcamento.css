@@ -1,0 +1,21 @@
+﻿body {
+}
+
+.divBorda{
+    /*border-top: solid 1px;*/
+    border-bottom: solid 1px;
+}
+
+#Descricao{
+    color: red;
+}
+
+#DataRealizado{
+    color: red;
+}
+
+#DataEntregaDesejada{
+    color: red;
+}
+
+
